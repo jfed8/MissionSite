@@ -18,17 +18,17 @@ namespace MissionSite.Controllers
                 switch (missionName)
                 {
                     case "Bolivia, Cochabamba":
-                        ViewBag.President = "";
-                        ViewBag.Address = "";
-                        ViewBag.Language = "";
-                        ViewBag.Climate = "";
+                        ViewBag.President = "Mark W. Hansen";
+                        ViewBag.Address = "Casilla de Correo 1375 Cochabamba, Cochabamba Bolivia 591-4-411-7207";
+                        ViewBag.Language = "Spanish";
+                        ViewBag.Climate = "Mild";
                         ViewBag.DominateReligion = "";
                         ViewBag.Flag = "";
                         break;
                     case "Louisiana, Baton Rouge":
-                        ViewBag.President = "";
-                        ViewBag.Address = "";
-                        ViewBag.Language = "";
+                        ViewBag.President = "Reed H. Hansen";
+                        ViewBag.Address = "12025 Justice Ave Baton Rouge LA 70816 United States";
+                        ViewBag.Language = "English";
                         ViewBag.Climate = "";
                         ViewBag.DominateReligion = "";
                         ViewBag.Flag = "";
