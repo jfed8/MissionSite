@@ -27,7 +27,7 @@ namespace MissionSite.Controllers
                         break;
                     case "Louisiana, Baton Rouge":
                         ViewBag.President = "Reed H. Hansen";
-                        ViewBag.Address = "12025 Justice Ave Baton Rouge LA 70816 United States";
+                        ViewBag.Address = "12025 Justice Ave \nBaton Rouge LA 70816 \nUnited States";
                         ViewBag.Language = "English";
                         ViewBag.Climate = "Humid Subtropical";
                         ViewBag.DominateReligion = "Catholic";
