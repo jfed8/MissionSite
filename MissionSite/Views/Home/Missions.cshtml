@@ -3,5 +3,29 @@
     ViewBag.Title = "Missions";
 }
 
+<link rel="stylesheet" media="all" href="/assets/application-150c68a5865fd940967b94f5df8649a0266bced728d892e8a76010765db855f7.css" data-turbolinks-track="true" />
+
 <h2>Missions</h2>
 
+<header class="container-fluid text-center pages-header home-header" style="background: url(../../img/missionaries.jpg) no-repeat top center">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Find your mission here:</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <form class="search-form" id="ug-home-search" action="/search" accept-charset="UTF-8" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+                <select name="university" id="university-search" class="form-control" >
+                    <option value="0">All Missions</option>
+                    <option value="1">Bolivia, Cochabamba</option>
+                    <option value="2">Louisiana, Baton Rouge</option>
+                    <option value="3">Philippines, Tacloban</option>
+                    <option value="4">Colorado, Fort Collins</option>
+                </select>
+                <input type="submit" name="commit" value="Go!" class="btn btn-primary" id="search-submit" />
+            </form>
+        </div>
+    </div>
+</header>
