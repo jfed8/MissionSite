@@ -42,12 +42,12 @@ namespace MissionSite.Controllers
                         ViewBag.Flag = "";
                         break;
                     case "Colorado, Fort Collins":
-                        ViewBag.President = "";
-                        ViewBag.Address = "";
-                        ViewBag.Language = "";
-                        ViewBag.Climate = "";
-                        ViewBag.DominateReligion = "";
-                        ViewBag.Flag = "";
+                        ViewBag.President = "Sean S. McMurray";
+                        ViewBag.Address = "Colorado Fort Collins Mission 500 Hillspire Dr Windsor CO 80550 USA";
+                        ViewBag.Language = "English";
+                        ViewBag.Climate = "Mild";
+                        ViewBag.DominateReligion = "Catholic";
+                        ViewBag.Flag = "~/img/coloradoFlag.png";
                         break;
                 }
                 return View();
