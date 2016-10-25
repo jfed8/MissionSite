@@ -9,7 +9,7 @@ namespace MissionSite.Controllers
     public class MissionController : Controller
     {
         // GET: Mission
-        public ActionResult Index(string missionName)
+        public ActionResult SelectedMission(string missionName)
         {
             if (missionName != null)
             {
