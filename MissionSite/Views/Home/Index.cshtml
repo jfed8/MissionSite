@@ -3,7 +3,7 @@
 }
 
 <div class="jumbotron my-jumbotron">
-    <h1>Welcome to Mission-Pedia!</h1>
+    <h1>Welcome to MissionPedia!</h1>
     <p>The biggest collection of mission stats, facts, and information.</p>
     <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
@@ -11,10 +11,10 @@
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-            <li><a href="@Url.Action("method", "controller")">Bolivia, Cochabamba</a></li>
-            <li><a href="#">Louisiana, Baton Rouge</a></li>
-            <li><a href="#">Philippines, Tacloban</a></li>
-            <li><a href="#">Colorado, Fort Collins</a></li>
+            <li>@Html.ActionLink("Bolivia, Cochabamba", "Index", "Mission", new {missionName = "Bolivia, Cochabamba"})</li>
+            <li>@Html.ActionLink("Louisiana, Baton Rouge", "Index", "Mission", new { missionName = "Louisiana, Baton Rouge" })</li>
+            <li>@Html.ActionLink("Philippines, Tacloban", "Index", "Mission", new { missionName = "Philippines, Tacloban" })</li>
+            <li>@Html.ActionLink("Colorado, Fort Collins", "Index", "Mission", new { missionName = "Colorado, Fort Collins" })</li>
         </ul>
     </div>
 </div>
