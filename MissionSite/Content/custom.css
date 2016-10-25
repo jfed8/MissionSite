@@ -1,0 +1,10 @@
+﻿.my-jumbotron {
+    color: #ffffff;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    background-image: url(~/../../img/landingpageBanner.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
