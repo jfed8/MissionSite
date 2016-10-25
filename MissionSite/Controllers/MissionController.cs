@@ -9,7 +9,7 @@ namespace MissionSite.Controllers
     public class MissionController : Controller
     {
         // GET: Mission
-        public ActionResult Index(string missionName)
+        public ActionResult MissionDetails(string missionName)
         {
             if (missionName != null)
             {
@@ -22,23 +22,23 @@ namespace MissionSite.Controllers
                         ViewBag.Address = "Casilla de Correo 1375 Cochabamba, Cochabamba Bolivia 591-4-411-7207";
                         ViewBag.Language = "Spanish";
                         ViewBag.Climate = "Mild";
-                        ViewBag.DominateReligion = "";
-                        ViewBag.Flag = "";
+                        ViewBag.DominateReligion = "Catholic";
+                        ViewBag.Flag = "~/img/bolivia.png";
                         break;
                     case "Louisiana, Baton Rouge":
                         ViewBag.President = "Reed H. Hansen";
                         ViewBag.Address = "12025 Justice Ave Baton Rouge LA 70816 United States";
                         ViewBag.Language = "English";
-                        ViewBag.Climate = "";
-                        ViewBag.DominateReligion = "";
-                        ViewBag.Flag = "";
+                        ViewBag.Climate = "Humid Subtropical";
+                        ViewBag.DominateReligion = "Catholic";
+                        ViewBag.Flag = "~/img/louisiana.png";
                         break;
                     case "Philippines, Tacloban":
-                        ViewBag.President = "";
-                        ViewBag.Address = "";
-                        ViewBag.Language = "";
-                        ViewBag.Climate = "";
-                        ViewBag.DominateReligion = "";
+                        ViewBag.President = "Wayne Maurer";
+                        ViewBag.Address = "6000 Maharlika Way, Fatima Village, Leyte, Philippines";
+                        ViewBag.Language = "Cebauno & Waray Waray";
+                        ViewBag.Climate = "Tropical";
+                        ViewBag.DominateReligion = "Catholic";
                         ViewBag.Flag = "";
                         break;
                     case "Colorado, Fort Collins":
