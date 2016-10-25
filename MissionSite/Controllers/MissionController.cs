@@ -22,8 +22,8 @@ namespace MissionSite.Controllers
                         ViewBag.Address = "Casilla de Correo 1375 Cochabamba, Cochabamba Bolivia 591-4-411-7207";
                         ViewBag.Language = "Spanish";
                         ViewBag.Climate = "Mild";
-                        ViewBag.DominateReligion = "";
-                        ViewBag.Flag = "";
+                        ViewBag.DominateReligion = "Catholic";
+                        ViewBag.Flag = "~/img/bolivia.png";
                         break;
                     case "Louisiana, Baton Rouge":
                         ViewBag.President = "Reed H. Hansen";
