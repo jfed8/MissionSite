@@ -29,9 +29,9 @@ namespace MissionSite.Controllers
                         ViewBag.President = "Reed H. Hansen";
                         ViewBag.Address = "12025 Justice Ave Baton Rouge LA 70816 United States";
                         ViewBag.Language = "English";
-                        ViewBag.Climate = "";
-                        ViewBag.DominateReligion = "";
-                        ViewBag.Flag = "";
+                        ViewBag.Climate = "Humid Subtropical";
+                        ViewBag.DominateReligion = "Catholic";
+                        ViewBag.Flag = "~/img/louisiana.png";
                         break;
                     case "Philippines, Tacloban":
                         ViewBag.President = "Wayne Maurer";
