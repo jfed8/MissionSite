@@ -54,7 +54,7 @@ namespace MissionSite.Controllers
             }
             else
             {
-                return RedirectToAction("Missions", "Home");
+                return RedirectToAction("Missions", "Mission");
             }
         }
 
