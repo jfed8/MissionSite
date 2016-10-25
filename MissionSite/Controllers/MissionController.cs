@@ -57,5 +57,10 @@ namespace MissionSite.Controllers
                 return RedirectToAction("Missions", "Home");
             }
         }
+
+        public ActionResult Missions()
+        {
+            return View();
+        }
     }
 }
