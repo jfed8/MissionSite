@@ -2,16 +2,16 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Welcome to Mission-pedia</h1>
-    <p>Find your mission NOW!</p>
+<div class="jumbotron my-jumbotron">
+    <h1>Welcome to Mission-Pedia!</h1>
+    <p>The biggest collection of mission stats, facts, and information.</p>
     <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
             Search Missions
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-            <li><a href="#">Bolivia, Cochabamba</a></li>
+            <li><a href="@Url.Action("method", "controller")">Bolivia, Cochabamba</a></li>
             <li><a href="#">Louisiana, Baton Rouge</a></li>
             <li><a href="#">Philippines, Tacloban</a></li>
             <li><a href="#">Colorado, Fort Collins</a></li>
