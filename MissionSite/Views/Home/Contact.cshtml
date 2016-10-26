@@ -27,15 +27,20 @@
 
 
 <h3>Send us an email: </h3>
-<div class="row" id="contactForm">
-    @using (Html.BeginForm())
-    {
-        <p>Name:<br /> @Html.TextBox("Name", null, new { @placeholder = "Name" }) </p>
-        <p>Email: <br />@Html.TextBox("Email", null, new { @placeholder = "Email" }) </p>
-        <p>
-            Subject:<br /> @Html.DropDownList("SubjectNames")
-        </p>
-        <p>Message: <br />@Html.TextArea("Message", null, new { @placeholder = "Your message here" })</p>
-        <input type="submit" value="Send Email">
-    }
+<div class="panel panel-primary">
+    <div class="panel-heading"></div>
+    <div class="panel-body">
+        <div class="row" id="contactForm">
+            @using (Html.BeginForm())
+            {
+                <p>Name:<br /> @Html.TextBox("Name", null, new { @placeholder = "Name" }) </p>
+                <p>Email: <br />@Html.TextBox("Email", null, new { @placeholder = "Email" }) </p>
+                <p>
+                    Subject:<br /> @Html.DropDownList("SubjectNames")
+                </p>
+                <p>Message: <br />@Html.TextArea("Message", null, new { @placeholder = "Your message here" })</p>
+                <input type="submit" value="Send Email">
+            }
+        </div>
+    </div>
 </div>
