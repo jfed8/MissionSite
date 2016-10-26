@@ -1,6 +1,12 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
+
+<nav class="breadcrumb">
+    <a class="breadcrumb-item" href="@Url.Action("Index", "Home")">Home</a> /
+    <span class="breadcrumb-item active">Contact</span>
+</nav>
+
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 

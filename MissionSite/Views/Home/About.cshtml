@@ -1,6 +1,12 @@
 ﻿@{
     ViewBag.Title = "About";
 }
+
+<nav class="breadcrumb">
+    <a class="breadcrumb-item" href="@Url.Action("Index", "Home")">Home</a> /
+    <span class="breadcrumb-item active">About</span>
+</nav>
+
 <div class="jumbotron" >
 <h3>@ViewBag.Title. XLR8 Developement</h3>
 <h2>Mission Statement: </h2>
