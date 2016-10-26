@@ -31,7 +31,7 @@ namespace MissionSite.Controllers
                         ViewBag.Language = "English";
                         ViewBag.Climate = "Humid Subtropical";
                         ViewBag.DominateReligion = "Catholic";
-                        ViewBag.Flag = "~/img/louisiana.png";
+                        ViewBag.Flag = "../../img/louisiana.png";
                         break;
                     case "Philippines, Tacloban":
                         ViewBag.President = "Wayne Maurer";
@@ -39,7 +39,7 @@ namespace MissionSite.Controllers
                         ViewBag.Language = "Cebauno & Waray Waray";
                         ViewBag.Climate = "Tropical";
                         ViewBag.DominateReligion = "Catholic";
-                        ViewBag.Flag = "";
+                        ViewBag.Flag = "../../img/philippinesFlag.png";
                         break;
                     case "Colorado, Fort Collins":
                         ViewBag.President = "Sean S. McMurray";
@@ -47,7 +47,7 @@ namespace MissionSite.Controllers
                         ViewBag.Language = "English";
                         ViewBag.Climate = "Mild";
                         ViewBag.DominateReligion = "Catholic";
-                        ViewBag.Flag = "~/img/coloradoFlag.png";
+                        ViewBag.Flag = "../../img/coloradoFlag.png";
                         break;
                 }
                 return View();
