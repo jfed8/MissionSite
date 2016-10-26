@@ -45,3 +45,41 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+<!--  MARK: FAQ Section  -->
+
+
+
+
+
+
+
+
+<!--  MARK: New Question Form  -->
+
+<br />
+<br />
+
+<div class="alert alert-success" id="alert" style="display:none;">
+    <a href="#" class="close" aria-label="close" onclick="$('.alert').hide();">&times;</a>
+    <strong>Sorry!</strong> Your comments were sent to no one, because this is a fake website anyway.
+</div>
+
+
+<div class="row">
+    <input id="name" class="input" name="name" type="text" value="" size="30" placeholder="Name" /><br />
+</div>
+<div class="row">
+    <br />
+    <input id="email" class="input" name="email" type="text" value="" size="30" placeholder="Email" /><br />
+</div>
+<div class="row">
+    <br />
+    <textarea id="message" class="input" name="message" rows="7" cols="30" placeholder="Type your message here"></textarea><br />
+</div>
+<br />
+<button id="submit_button" value="Send email" onclick="$('.alert').show(); $('#name').val(''); $('#email').val(''); $('#message').val('');">Send Comments</button>
