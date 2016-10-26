@@ -11,10 +11,11 @@
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-            <li>@Html.ActionLink("Bolivia, Cochabamba", "Index", "Mission", new {missionName = "Bolivia, Cochabamba"})</li>
-            <li>@Html.ActionLink("Louisiana, Baton Rouge", "Index", "Mission", new { missionName = "Louisiana, Baton Rouge" })</li>
-            <li>@Html.ActionLink("Philippines, Tacloban", "Index", "Mission", new { missionName = "Philippines, Tacloban" })</li>
-            <li>@Html.ActionLink("Colorado, Fort Collins", "Index", "Mission", new { missionName = "Colorado, Fort Collins" })</li>
+            <li><a href="@Url.Action("MissionDetails", "Mission", new { missionName = "Bolivia, Cochabamba" })">Bolivia, Cochabamba</a></li>
+            <li><a href="@Url.Action("MissionDetails", "Mission", new { missionName = "Louisiana, Baton Rouge" })">Louisiana, Baton Rouge</a></li>
+            <li><a href="@Url.Action("MissionDetails", "Mission", new { missionName = "Philippines, Tacloban" })">Philippines, Tacloban</a></li>
+            <li><a href="@Url.Action("MissionDetails", "Mission", new { missionName = "Colorado, Fort Collins" })">Colorado, Fort Collins</a></li>
+            
         </ul>
     </div>
 </div>

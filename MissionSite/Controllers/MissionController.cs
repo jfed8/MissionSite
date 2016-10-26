@@ -39,7 +39,7 @@ namespace MissionSite.Controllers
                         ViewBag.Language = "Cebauno & Waray Waray";
                         ViewBag.Climate = "Tropical";
                         ViewBag.DominateReligion = "Catholic";
-                        ViewBag.Flag = "";
+                        ViewBag.Flag = "../img/philippinesFlag.png";
                         break;
                     case "Colorado, Fort Collins":
                         ViewBag.President = "Sean S. McMurray";
