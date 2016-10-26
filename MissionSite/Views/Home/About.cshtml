@@ -1,9 +1,16 @@
 ﻿@{
     ViewBag.Title = "About";
 }
+
+<nav class="breadcrumb">
+    <a class="breadcrumb-item" href="@Url.Action("Index", "Home")">Home</a> /
+    <span class="breadcrumb-item active">About</span>
+</nav>
+
 <div class="jumbotron" >
-<h3>@ViewBag.Title. XLR8 Developement</h3>
-<h2>Mission Statement: </h2>
+<h1>XLR8 Developement</h1>
+<h4><i class="glyphicon glyphicon-heart"></i><em> Keeping missionaries together</em></h4>
 
     </div>
-<p>Use this area to provide additional information.</p>
+<p>Here at XLR8 we are dedicated to helping new missionaries use the resources that are available to them through other missionaries that have been
+     to the mission before them. We are here to make that bridge! If you need anything, feel free to <a href="@Url.Action("Contact", "Home")">Contact Us</a></p>
