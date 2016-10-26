@@ -2,22 +2,45 @@
     ViewBag.Title = "Contact";
 }
 
-<nav class="breadcrumb" style="position: fixed">
+<nav class="breadcrumb" style="position: fixed;">
     <a class="breadcrumb-item" href="@Url.Action("Index", "Home")">Home</a> /
     <span class="breadcrumb-item active">Contact</span>
 </nav>
 
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="page-header">
+    <h1>@ViewBag.Title <small>XLR8 Developement</small></h1>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+</div>
+
+<h3>Visit us at our facility: </h3>
+<div class="panel panel-primary">
+    <div class="panel-heading">Address:</div>
+    <div class="panel-body">
+        XLR8 Development<br />
+        1285 N. Freedom Blvd <br />
+        Provo, UT 84604<br />
+
+        Phone: (801) 999-1234
+    </div>
+</div>
+
+
+<h3>Send us an email: </h3>
+<div class="panel panel-primary">
+    <div class="panel-heading"></div>
+    <div class="panel-body">
+        <div class="row" id="contactForm">
+            @using (Html.BeginForm())
+            {
+                <p>Name:<br /> @Html.TextBox("Name", null, new { @placeholder = "Name" }) </p>
+                <p>Email: <br />@Html.TextBox("Email", null, new { @placeholder = "Email" }) </p>
+                <p>
+                    Subject:<br /> @Html.DropDownList("SubjectNames")
+                </p>
+                <p>Message: <br />@Html.TextArea("Message", null, new { @placeholder = "Your message here" })</p>
+                <input type="submit" value="Send Email">
+            }
+        </div>
+    </div>
+</div>
