@@ -43,7 +43,7 @@ namespace MissionSite.Controllers
                         break;
                     case "Colorado, Fort Collins":
                         ViewBag.President = "Sean S. McMurray";
-                        ViewBag.Address = "Colorado Fort Collins Mission \n500 Hillspire Dr \nWindsor CO 80550 \nUnited States";
+                        ViewBag.Address = "Colorado Fort Collins Mission \n500 Hillspire Dr \nWindsor, CO 80550 \nUnited States";
                         ViewBag.Language = "English";
                         ViewBag.Climate = "Mild";
                         ViewBag.DominateReligion = "Catholic";
