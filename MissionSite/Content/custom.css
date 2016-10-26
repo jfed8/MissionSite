@@ -19,7 +19,12 @@
 	color: #ffffff;
 }
 
+#contactForm {
+    padding-left: 20px;
+}
+
 #contactForm textarea {
     width : 400px;
     height : 200px;
+    
 }
