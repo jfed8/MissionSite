@@ -31,7 +31,7 @@ namespace MissionSite.Controllers
                         ViewBag.Language = "English";
                         ViewBag.Climate = "Humid Subtropical";
                         ViewBag.DominateReligion = "Catholic";
-                        ViewBag.Flag = "~/img/louisiana.png";
+                        ViewBag.Flag = "../../img/louisiana.png";
                         break;
                     case "Philippines, Tacloban":
                         ViewBag.President = "Wayne Maurer";
