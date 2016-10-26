@@ -182,6 +182,7 @@
     <Content Include="img\coloradoFlag.png" />
     <Content Include="img\landingpageBanner.jpg" />
     <Content Include="img\missionaries.jpg" />
+    <Content Include="img\philippinesFlag.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
