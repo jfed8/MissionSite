@@ -52,6 +52,47 @@
 
 <!--  MARK: FAQ Section  -->
 
+<div class="panel-group" id="accordion">
+    <div class="panel-heading" style="text-align:center;"><h2>FAQ</h2></div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">How can I best prepare for my mission?</a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+                Your most important preparation will be spiritual. Find out how you can prepare to help others receive the restored gospel and come unto Christ.
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">How can I best learn the language?</a>
+            </h4>
+        </div>
+        <div id="collapseTen" class="panel-collapse collapse">
+            <div class="panel-body">
+                Learning to teach effectively in your mission language requires diligent effort. Do not be surprised if the task seems hard at first. 
+                Learning a language takes time. Be patient with yourself. Seek the help of your companion, members, investigators, and other missionaries.
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">When should I serve a mission?</a>
+            </h4>
+        </div>
+        <div id="collapseEleven" class="panel-collapse collapse">
+            <div class="panel-body">
+                When changes to the missionary age eligibility were announced, it is possible your “life plan” was altered and you’re no longer sure when you should go. When to serve a mission is an important decision. 
+                Read on to find helpful suggestions about when to serve and how to prepare so that you’ll be ready whenever the Lord needs you.
+            </div>
+        </div>
+    </div>
+    </div>
 
 
 
@@ -59,27 +100,29 @@
 
 
 
-<!--  MARK: New Question Form  -->
-
-<br />
-<br />
-
-<div class="alert alert-success" id="alert" style="display:none;">
-    <a href="#" class="close" aria-label="close" onclick="$('.alert').hide();">&times;</a>
-    <strong>Sorry!</strong> Your comments were sent to no one, because this is a fake website anyway.
-</div>
 
 
-<div class="row">
-    <input id="name" class="input" name="name" type="text" value="" size="30" placeholder="Name" /><br />
-</div>
-<div class="row">
+    <!--  MARK: New Question Form  -->
+
     <br />
-    <input id="email" class="input" name="email" type="text" value="" size="30" placeholder="Email" /><br />
-</div>
-<div class="row">
     <br />
-    <textarea id="message" class="input" name="message" rows="7" cols="30" placeholder="Type your message here"></textarea><br />
-</div>
-<br />
-<button id="submit_button" value="Send email" onclick="$('.alert').show(); $('#name').val(''); $('#email').val(''); $('#message').val('');">Send Comments</button>
+
+    <div class="alert alert-success" id="alert" style="display:none;">
+        <a href="#" class="close" aria-label="close" onclick="$('.alert').hide();">&times;</a>
+        <strong>Sorry!</strong> Your comments were sent to no one, because this is a fake website anyway.
+    </div>
+
+
+    <div class="row">
+        <input id="name" class="input" name="name" type="text" value="" size="30" placeholder="Name" /><br />
+    </div>
+    <div class="row">
+        <br />
+        <input id="email" class="input" name="email" type="text" value="" size="30" placeholder="Email" /><br />
+    </div>
+    <div class="row">
+        <br />
+        <textarea id="message" class="input" name="message" rows="7" cols="30" placeholder="Type your message here"></textarea><br />
+    </div>
+    <br />
+    <button id="submit_button" value="Send email" onclick="$('.alert').show(); $('#name').val(''); $('#email').val(''); $('#message').val('');">Send Comments</button>
