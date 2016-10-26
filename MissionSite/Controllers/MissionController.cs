@@ -47,7 +47,7 @@ namespace MissionSite.Controllers
                         ViewBag.Language = "English";
                         ViewBag.Climate = "Mild";
                         ViewBag.DominateReligion = "Catholic";
-                        ViewBag.Flag = "~/img/coloradoFlag.png";
+                        ViewBag.Flag = "../../img/coloradoFlag.png";
                         break;
                 }
                 return View();
