@@ -181,6 +181,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="img\coloradoFlag.png" />
     <Content Include="img\landingpageBanner.jpg" />
+    <Content Include="img\louisiana.png" />
     <Content Include="img\missionaries.jpg" />
     <Content Include="img\philippinesFlag.png" />
     <Content Include="Scripts\bootstrap.js" />
