@@ -1,17 +1,102 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<div class="page-header">
+    <h1>@ViewBag.Title <small>XLR8 Developement</small></h1>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+</div>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<div class="panel panel-primary">
+    <div class="panel-heading">Address:</div>
+    <div class="panel-body">
+        XLR8 Development<br />
+        1285 N. Freedom Blvd <br />
+        Provo, UT 84604<br />
+        
+        Phone: 801.999.1234
+    </div>
+</div>
+
+
+
+
+
+<div class="alert alert-success" id="alert" style="display:none;">
+    <a href="#" class="close" aria-label="close" onclick="$('.alert').hide();">&times;</a>
+    <strong>Sorry!</strong> Your comments were sent to no one, because this is a fake website anyway.
+</div>
+
+
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary();
+
+        <p>Name:    @Html.TextBox("")</p>
+        <p>Email:   @Html.TextBox("")</p>
+        <p>Phone:   @Html.TextBox("")</p>
+        <p>
+            Subject:
+            @Html.DropDownList("", new[]
+                  {
+                    new SelectListItem()
+                    {
+                      Text = "Subject1", Value = bool.TrueString
+                    },
+                    new SelectListItem()
+                    {
+                      Text = "Subject2", Value = bool.FalseString
+                    },
+                    new SelectListItem()
+                    {
+                      Text = "Subject3", Value = bool.FalseString
+                    },
+                    new SelectListItem()
+                    {
+                      Text = "Subject4", Value = bool.FalseString
+                    },
+                    new SelectListItem()
+                    {
+                      Text = "Subject5", Value = bool.FalseString
+                    },  
+                  },
+                  "Please choose one")
+        </p>
+        <input type="submit" value="Submit RSVP" />
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+    <input id="name" class="input" name="name" type="text" value="" size="30" placeholder="Name" /><br />
+</div>
+
+
+<div class="row">
+    <br />
+    <input id="email" class="input" name="email" type="text" value="" size="30" placeholder="Email" /><br />
+</div>
+<div class="row">
+    <br />
+    <textarea id="message" class="input" name="message" rows="7" cols="30" placeholder="Type your message here"></textarea><br />
+</div>
+<br />
+<button id="submit_button" value="Send email" onclick="$('.alert').show(); $('#name').val(''); $('#email').val(''); $('#message').val('');">Send Comments</button>
