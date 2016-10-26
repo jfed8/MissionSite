@@ -13,48 +13,48 @@ namespace MissionSite.Controllers
         {
             if (missionName != null)
             {
-                ViewBag.Instrument = missionName;
+                ViewBag.Name = missionName;
 
                 switch (missionName)
                 {
                     case "Bolivia, Cochabamba":
                         ViewBag.President = "Mark W. Hansen";
-                        ViewBag.Address = "Casilla de Correo 1375 Cochabamba, Cochabamba Bolivia 591-4-411-7207";
+                        ViewBag.Address = "Casilla de Correo 1375 \nCochabamba, Cochabamba \nBolivia 591-4-411-7207";
                         ViewBag.Language = "Spanish";
                         ViewBag.Climate = "Mild";
                         ViewBag.DominateReligion = "Catholic";
-                        ViewBag.Flag = "~/img/bolivia.png";
+                        ViewBag.Flag = "../../img/bolivia.png";
                         break;
                     case "Louisiana, Baton Rouge":
                         ViewBag.President = "Reed H. Hansen";
-                        ViewBag.Address = "12025 Justice Ave Baton Rouge LA 70816 United States";
+                        ViewBag.Address = "12025 Justice Ave \nBaton Rouge, LA 70816 \nUnited States";
                         ViewBag.Language = "English";
-                        ViewBag.Climate = "";
-                        ViewBag.DominateReligion = "";
-                        ViewBag.Flag = "";
+                        ViewBag.Climate = "Humid Subtropical";
+                        ViewBag.DominateReligion = "Catholic";
+                        ViewBag.Flag = "~/img/louisiana.png";
                         break;
                     case "Philippines, Tacloban":
                         ViewBag.President = "Wayne Maurer";
-                        ViewBag.Address = "6000 Maharlika Way, Fatima Village, Leyte, Philippines";
+                        ViewBag.Address = "6000 Maharlika Way \nFatima Village, Leyte \nPhilippines";
                         ViewBag.Language = "Cebauno & Waray Waray";
                         ViewBag.Climate = "Tropical";
                         ViewBag.DominateReligion = "Catholic";
                         ViewBag.Flag = "../img/philippinesFlag.png";
                         break;
                     case "Colorado, Fort Collins":
-                        ViewBag.President = "";
-                        ViewBag.Address = "";
-                        ViewBag.Language = "";
-                        ViewBag.Climate = "";
-                        ViewBag.DominateReligion = "";
-                        ViewBag.Flag = "";
+                        ViewBag.President = "Sean S. McMurray";
+                        ViewBag.Address = "Colorado Fort Collins Mission \n500 Hillspire Dr \nWindsor CO 80550 \nUnited States";
+                        ViewBag.Language = "English";
+                        ViewBag.Climate = "Mild";
+                        ViewBag.DominateReligion = "Catholic";
+                        ViewBag.Flag = "~/img/coloradoFlag.png";
                         break;
                 }
                 return View();
             }
             else
             {
-                return RedirectToAction("Missions", "Home");
+                return RedirectToAction("Missions", "Mission");
             }
         }
 

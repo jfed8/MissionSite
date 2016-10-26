@@ -3,5 +3,39 @@
     ViewBag.Title = "MissionDetails";
 }
 
-<h2>MissionDetails</h2>
 
+
+
+<div class="page-header">
+    <h1>@ViewBag.Name <small>President: @ViewBag.President</small></h1>
+</div>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3" id="flag" style="text-align: center;">
+            <img src="@ViewBag.Flag" />
+            
+        </div>
+        <br />
+        <div class="col-md-8" id="missioninfo" >
+            <div class="panel panel-primary">
+                <div class="panel-heading">Address</div>
+                <div class="panel-body">
+                    @ViewBag.Address
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">People</div>
+                <div class="panel-body">
+                    <b>Language:</b> @ViewBag.Language
+                    <br />
+                    <b>Religion:</b> @ViewBag.DominantReligion
+                    <br />
+                    <b>Climate:</b> @ViewBag.Climate
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
