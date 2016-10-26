@@ -13,7 +13,7 @@ namespace MissionSite.Controllers
         {
             if (missionName != null)
             {
-                ViewBag.Instrument = missionName;
+                ViewBag.Name = missionName;
 
                 switch (missionName)
                 {
@@ -23,7 +23,7 @@ namespace MissionSite.Controllers
                         ViewBag.Language = "Spanish";
                         ViewBag.Climate = "Mild";
                         ViewBag.DominateReligion = "Catholic";
-                        ViewBag.Flag = "~/img/bolivia.png";
+                        ViewBag.Flag = "../../img/bolivia.png";
                         break;
                     case "Louisiana, Baton Rouge":
                         ViewBag.President = "Reed H. Hansen";
