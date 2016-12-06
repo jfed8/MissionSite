@@ -9,6 +9,11 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MissionSite.Models;
+using System.Data.Entity;
+using MissionSite.DAL;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace MissionSite.Controllers
 {
@@ -17,6 +22,7 @@ namespace MissionSite.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private MissionaryContext db = new MissionaryContext();
 
         public AccountController()
         {
@@ -73,22 +79,41 @@ namespace MissionSite.Controllers
                 return View(model);
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
+            IEnumerable<Users> userIdQuery =
+                db.Database.SqlQuery<Users>("SELECT * " +
+                "FROM Users " +
+                "WHERE UserEmail = '" + model.UserEmail + "';");
+
+            int userid = userIdQuery.FirstOrDefault().UserID;
+
+
+            Users usr = db.User.Find(userid);
+            Debug.WriteLine("Finding User:");
+            
+            if (usr.FirstName != null)
             {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                Debug.WriteLine("User Found in Database");
+                var result = await SignInManager.PasswordSignInAsync(model.UserEmail, model.Password, model.RememberMe, shouldLockout: false);
+                switch (result)
+                {
+                    case SignInStatus.Success:
+                        return RedirectToLocal(returnUrl);
+                    case SignInStatus.LockedOut:
+                        return View("Lockout");
+                    case SignInStatus.RequiresVerification:
+                        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    case SignInStatus.Failure:
+                    default:
+                        ModelState.AddModelError("", "Invalid login attempt.");
+                        return View(model);
+                }
             }
+            else
+            {
+                ModelState.AddModelError("", "Invalid login attempt.");
+                return View(model);
+            }
+            
         }
 
         //
@@ -147,21 +172,19 @@ namespace MissionSite.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register([Bind(Include = "UserEmail,Password,FirstName,LastName")] Users tempUser, RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserEmail, Email = model.UserEmail };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    db.User.Add(tempUser);
+                    db.SaveChanges();
+
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -170,6 +193,10 @@ namespace MissionSite.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+
+
+
+
         }
 
         //

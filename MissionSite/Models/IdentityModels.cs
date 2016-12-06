@@ -16,12 +16,18 @@ namespace MissionSite.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public string LastName { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string Password { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("MissionaryContext", throwIfV1Schema: false)
         {
         }
 
