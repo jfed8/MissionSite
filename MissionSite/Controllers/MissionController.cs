@@ -33,7 +33,7 @@ namespace MissionSite.Controllers
 
         public ActionResult Missions()
         {
-            return View();
+            return View(db.Mission.ToList());
         }
     }
 }
