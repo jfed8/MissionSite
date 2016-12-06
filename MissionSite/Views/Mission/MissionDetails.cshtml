@@ -1,9 +1,10 @@
-﻿
+﻿@model IEnumerable<MissionSite.Models.Missions>
 @{
     ViewBag.Title = "MissionDetails";
 }
 
-
+@foreach (var item in Model)
+{ 
 <nav class="breadcrumb" style="position:fixed; z-index: 10000;">
     <a class="breadcrumb-item" href="@Url.Action("Index", "Home")">Home</a> /
     <a class="breadcrumb-item" href="@Url.Action("Missions", "Mission")">Missions</a> /
@@ -11,7 +12,7 @@
 </nav>
 
 <div class="page-header">
-    <h1>@ViewBag.Name <small>President: @ViewBag.President</small></h1>
+    <h1>@ViewBag.Name <small>President:</small> @Html.DisplayFor(model => item.MissionPresident)</h1>
 </div>
 
 
@@ -19,7 +20,7 @@
 <div class="container-fluid" >
     <div class="row">
         <div class="col-md-12" id="flag" style="text-align: center;">
-            <img src="@ViewBag.Flag" style=" height: auto; width: 50vw; padding-right: 20px;"/>
+            <img src="@Html.DisplayFor(model => item.MissionFlag)" style=" height: auto; width: 50vw; padding-right: 20px;" />
             
         </div>
         
@@ -33,23 +34,25 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">Address</div>
                 <div class="panel-body">
-                    <p style="white-space: pre-line"> @ViewBag.Address</p>
+                    <p style="white-space: pre-line"> 
+                        @Html.DisplayFor(model => item.MissionName) Mission<br />@Html.DisplayFor(model => item.MissionStreet1)<br />@Html.DisplayFor(model => item.MissionStreet2)<br />@Html.DisplayFor(model => item.MissionCountryCode)
+                    </p>
                 </div>
             </div>
             <div class="panel panel-primary">
                 <div class="panel-heading">People</div>
                 <div class="panel-body">
-                    <b>Language:</b> @ViewBag.Language
+                    <b>Language:</b> @Html.DisplayFor(model => item.MissionLanguage)
                     <br />
-                    <b>Religion:</b> @ViewBag.DominateReligion
+                    <b>Religion:</b> @Html.DisplayFor(model => item.MissionReligion)
                     <br />
-                    <b>Climate:</b> @ViewBag.Climate
+                    <b>Climate:</b> @Html.DisplayFor(model => item.MissionClimate)
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+}
 
 
 

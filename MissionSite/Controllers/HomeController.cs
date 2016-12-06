@@ -1,16 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MissionSite.DAL;
+using MissionSite.Models;
 
 namespace MissionSite.Controllers
 {
     public class HomeController : Controller
     {
+
+        private MissionaryContext db = new MissionaryContext();
+
         public ActionResult Index()
         {
-            return View();
+            return View(db.Mission.ToList());
         }
 
         public ActionResult About()
