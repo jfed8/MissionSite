@@ -14,7 +14,9 @@ namespace MissionSite.Models
         public int MissionID { get; set; }
         public string MissionName { get; set; }
         public string MissionPresident { get; set; }
-        public string MissionAddress { get; set; }
+        public string MissionStreet1 { get; set; }
+        public string MissionStreet2 { get; set; }
+        public string MissionCountryCode { get; set; }
         public string MissionLanguage { get; set; }
         public string MissionClimate { get; set; }
         public string MissionReligion { get; set; }
