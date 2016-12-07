@@ -17,7 +17,9 @@
             <h4 class="panel-title">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-@item.MissionQuestionID">@Html.DisplayFor(model => item.Question)</a>
             </h4>
-            <button class="btn btn-default pull-right">Edit/Add Answer</button>
+            <button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#gridSystemModal" style="font-size: large;">
+                Edit/Add Answer
+            </button>
             <div class="clearfix"></div>
         </div>
         <div id="collapse-@item.MissionQuestionID" class="panel-collapse collapse in">
@@ -99,10 +101,6 @@
                         <div class="container-fluid bd-example-row">
                             <div class="row">
 
-                                <div class="alert alert-success" id="alert" style="display:none;">
-                                    <a href="#" class="close" aria-label="close" onclick="$('.alert').hide();">&times;</a>
-                                    <strong>Sorry!</strong> Your question was not saved, because this is a fake website anyway.
-                                </div>
 
 @using (Html.BeginForm())
 {
