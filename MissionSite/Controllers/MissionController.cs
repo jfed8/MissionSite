@@ -11,6 +11,7 @@ namespace MissionSite.Controllers
     public class MissionController : Controller
     {
         private MissionaryContext db = new MissionaryContext();
+
         // GET: Mission
         public ActionResult MissionDetails(string missionID)
         {
@@ -34,6 +35,26 @@ namespace MissionSite.Controllers
         public ActionResult Missions()
         {
             return View(db.Mission.ToList());
+        }
+
+        [Authorize]
+        public ActionResult FAQ(string missionID)
+        {
+            // Do something to get the information on the questions.
+            if (missionID != null)
+            {
+                IEnumerable<MissionQuestions> Questions =
+                db.Database.SqlQuery<MissionQuestions>(
+                "Select MissionQuestionID, MissionID, UserID, Question, Answer " +
+                "FROM MissionQuestions " +
+                "WHERE MissionID = '" + missionID + "'");
+                return View(Questions);
+            }
+            else
+            {
+                return RedirectToAction("Missions", "Mission");
+            }
+
         }
     }
 }
