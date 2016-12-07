@@ -125,7 +125,7 @@
 
             <div class="row">
                 <br />
-                <textarea id="answer" class="input" name="message" rows="7" cols="30" value="@ViewBag.Answer)"></textarea><br />
+                <textarea id="answer" class="input" name="message" rows="7" cols="30" >@ViewBag.Answer</textarea><br />
             </div>
 
 
@@ -180,7 +180,7 @@
         };
 
         document.getElementById('question').onchange = function () {
-            updateReason('Updated Customer Name');
+            updateReason('Question Changed.');
         };
     }());
 </script>
