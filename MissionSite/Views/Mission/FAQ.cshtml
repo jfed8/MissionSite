@@ -17,6 +17,8 @@
             <h4 class="panel-title">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-@item.MissionQuestionID">@Html.DisplayFor(model => item.Question)</a>
             </h4>
+            <button class="btn btn-default pull-right">Edit/Add Answer</button>
+            <div class="clearfix"></div>
         </div>
         <div id="collapse-@item.MissionQuestionID" class="panel-collapse collapse in">
             <div class="panel-body">
