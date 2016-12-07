@@ -58,9 +58,14 @@ namespace MissionSite.Controllers
 
         }
 
+        [HttpGet]
+        public async Task<ActionResult> Edit(int id)
+        {
+            return View();
+        }
 
         [HttpPost]
-        public async Task<ActionResult> FAQ(MissionQuestions model)
+        public async Task<ActionResult> Edit(MissionQuestions model)
         {
             return RedirectToAction("FAQ", "Mission", new { missionID = @model.MissionID });
         }
