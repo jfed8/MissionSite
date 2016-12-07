@@ -112,16 +112,13 @@
         <div class="row">
             <div class="dropdown">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-small btn-default dropdown-toggle" data-toggle="dropdown">
-                        Choose A Question
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
+                    <label for="sel1">Select question (select one):</label>
+                    <select class="form-control" id="sel1">
                         @foreach (var item in Model)
-                            {
-                                <li>@item.Question</li>
-                            }
-                    </ul>
+                        {
+                            <option>@item.Question</option>
+                        }
+                    </select>
                 </div>
             </div>
 
