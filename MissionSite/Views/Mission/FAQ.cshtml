@@ -88,7 +88,7 @@
     <div style="text-align: center; margin-bottom: 10vh;">
         <div id="gridSystemModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="false">
             <div class="modal-dialog" role="document">
-                <div class="modal-content" style="margin-top: 30vh;">
+                <div class="modal-content" style="margin-top: 10vh;">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="gridModalLabel">Answer a Question:</h4>
@@ -101,6 +101,45 @@
                                     <a href="#" class="close" aria-label="close" onclick="$('.alert').hide();">&times;</a>
                                     <strong>Sorry!</strong> Your question was not saved, because this is a fake website anyway.
                                 </div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="row">
+            <div class="dropdown">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-small btn-default dropdown-toggle" data-toggle="dropdown">
+                        Choose A Question
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        @foreach (var item in Model)
+                            {
+                                <li>@item.Question</li>
+                            }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <br />
+                <textarea id="message" class="input" name="message" rows="7" cols="30" placeholder="Type your answer here"></textarea><br />
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="submit" value="Answer" class="btn btn-default" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
 
                                 <div class="container-fluid" style="text-align: center;">
                                     <div class="row">

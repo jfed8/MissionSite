@@ -55,8 +55,9 @@
     <br />
     <br />
 
-    <a href="@Url.Action("FAQ", "Mission", new { missionID = @item.MissionID })">View FAQs for @Html.DisplayFor(modelItem => item.MissionName)</a>
-
+    <div style="text-align: center;">
+        <a class="btn btn-primary" href="@Url.Action("FAQ", "Mission", new { missionID = @item.MissionID })">View FAQs for @Html.DisplayFor(modelItem => item.MissionName)</a>
+    </div>
 </div>
 }
 

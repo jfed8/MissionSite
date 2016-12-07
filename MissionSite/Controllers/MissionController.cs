@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MissionSite.Models;
 using MissionSite.DAL;
+using System.Threading.Tasks;
 
 namespace MissionSite.Controllers
 {
@@ -55,6 +56,13 @@ namespace MissionSite.Controllers
                 return RedirectToAction("Missions", "Mission");
             }
 
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult> FAQ(MissionQuestions model)
+        {
+            return RedirectToAction("FAQ", "Mission", new { missionID = @model.MissionID });
         }
     }
 }
