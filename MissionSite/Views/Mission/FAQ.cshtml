@@ -111,12 +111,13 @@
 
         <div class="row">
             <div class="dropdown">
-                <div class="btn-group">
+                <div class="btn-group" id="question">
                     <label for="sel1">Select question (select one):</label>
-                    <select class="form-control" id="sel1">
+                    <select class="form-control" id="sel1" onchange="">
                         @foreach (var item in Model)
                         {
                             <option>@item.Question</option>
+                            ViewBag.Answer = item.Answer;
                         }
                     </select>
                 </div>
@@ -124,7 +125,7 @@
 
             <div class="row">
                 <br />
-                <textarea id="message" class="input" name="message" rows="7" cols="30" placeholder="Type your answer here"></textarea><br />
+                <textarea id="answer" class="input" name="message" rows="7" cols="30" value="@ViewBag.Answer)"></textarea><br />
             </div>
 
 
@@ -169,3 +170,17 @@
         <br />
         <button id="submit_button" value="Send email" onclick="$('.alert').show(); $('#name').val(''); $('#email').val(''); $('#message').val('');">Add Question</button>
     </div>
+
+<script>
+    (function () {
+        'use strict';
+
+        var updateReason = function (reason) {
+            document.getElementById('answer').innerHTML += reason + '\n';
+        };
+
+        document.getElementById('question').onchange = function () {
+            updateReason('Updated Customer Name');
+        };
+    }());
+</script>
