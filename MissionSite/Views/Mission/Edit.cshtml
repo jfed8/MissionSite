@@ -9,7 +9,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>MissionQuestions</h4>
         <hr />
@@ -55,6 +55,7 @@
         </div>
     </div>
 }
+
 
 <div>
     @Html.ActionLink("Back to Questions", "FAQ", "Mission", new { missionID = Model.MissionID }, null)

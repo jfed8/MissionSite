@@ -7,6 +7,7 @@ using MissionSite.Models;
 using MissionSite.DAL;
 using System.Threading.Tasks;
 using System.Net;
+using System.Data.Entity;
 
 namespace MissionSite.Controllers
 {
@@ -59,27 +60,35 @@ namespace MissionSite.Controllers
 
         }
 
-        [HttpGet]
+        // GET: MissionQuestions/Edit/5
         public ActionResult Edit(int? questionid)
         {
             if (questionid == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MissionQuestions question = db.MissionQuestion.Find(questionid);
-            
-            if(question ==null)
+            MissionQuestions missionQuestions = db.MissionQuestion.Find(questionid);
+            if (missionQuestions == null)
             {
                 return HttpNotFound();
             }
-
-            return View(question);
+            return View(missionQuestions);
         }
 
+        // POST: MissionQuestions/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit(MissionQuestions model)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "MissionQuestionID,MissionID,UserID,Question,Answer")] MissionQuestions missionQuestions)
         {
-            return RedirectToAction("FAQ", "Mission", new { missionID = @model.MissionID });
+            if (ModelState.IsValid)
+            {
+                db.Entry(missionQuestions).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("FAQ", "Mission", new { missionID = missionQuestions.MissionID });
+            }
+            return View(missionQuestions);
         }
     }
 }
