@@ -64,9 +64,13 @@ namespace MissionSite.Controllers
         public ActionResult FAQ(string missionID)
         {
             // Do something to get the information on the questions.
+
+            ViewBag.mission = missionID;
+
             if (missionID != null)
             {
                 int id = Convert.ToInt32(missionID);
+                ViewBag.mission = missionID;
                 Missions mission = db.Mission.Find(id);
                 ViewBag.MissionName = mission.MissionName;
                 ViewBag.MissionNumber = mission.MissionID;
@@ -127,18 +131,26 @@ namespace MissionSite.Controllers
         // GET: MissionQuestions/AddQuestion/5
         public ActionResult AddQuestion(int? missionid, int? userid)
         {
-            ViewBag.Mission = missionid;
+            int id = 1;
+
+            if (missionid != null)
+            {
+                id = Convert.ToInt32(missionid);
+            }
+
+            ViewBag.Mission = id;
             ViewBag.User = userid;
             if (missionid == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MissionQuestions newMissionQuestions = new MissionQuestions();
-            if (newMissionQuestions == null)
+            else
             {
-                return HttpNotFound();
+                MissionQuestions newMissionQuestions = new MissionQuestions() { MissionID = id};
+
+                return View(newMissionQuestions);
             }
-            return View(newMissionQuestions);
+            
         }
 
         // POST: MissionQuestions/AddQuestion/5
