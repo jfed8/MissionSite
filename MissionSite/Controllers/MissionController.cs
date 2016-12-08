@@ -150,6 +150,11 @@ namespace MissionSite.Controllers
             {
                 MissionQuestions newMissionQuestions = new MissionQuestions() { MissionID = id};
 
+                //Query Mission name for breadcrumb
+                Missions mission = db.Mission.Find(id);
+                ViewBag.MissionName = mission.MissionName;
+                ViewBag.MissionNumber = mission.MissionID;
+
                 return View(newMissionQuestions);
             }
             
