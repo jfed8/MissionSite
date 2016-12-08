@@ -79,6 +79,7 @@ namespace MissionSite.Controllers
                 return View(model);
             }
 
+            //Query to validate the login user a registered in the database.
             IEnumerable<Users> userIdQuery =
                 db.Database.SqlQuery<Users>("SELECT * " +
                 "FROM Users " +
@@ -90,6 +91,7 @@ namespace MissionSite.Controllers
             Users usr = db.User.Find(userid);
             Debug.WriteLine("Finding User:");
             
+            //Verifies that user email matches userpassword
             if (usr.FirstName != null)
             {
                 Debug.WriteLine("User Found in Database");
