@@ -146,13 +146,13 @@ namespace MissionSite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddQuestion([Bind(Include = "MissionQuestionID,MissionID,UserID,Question,Answer")] MissionQuestions missionQuestions, int missionid, int userid)
+        public ActionResult AddQuestion(MissionQuestions missionQuestions, int missionid, int userid)
         {
-            ViewBag.Mission = missionid;
-            ViewBag.User = userid;
+            missionQuestions.MissionID = missionid;
+            missionQuestions.UserID = userid;
             if (ModelState.IsValid)
             {
-                db.Entry(missionQuestions).State = EntityState.Modified;
+                db.MissionQuestion.Add(missionQuestions);
                 db.SaveChanges();
                 return RedirectToAction("FAQ", "Mission", new { missionID = missionQuestions.MissionID });
             }
