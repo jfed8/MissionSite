@@ -8,10 +8,15 @@
 
 <br />
 
+@{
+    ViewBag.QuestionCount = 0;
+}
+
 <div class="panel-group" id="accordion">
 <div class="panel-heading" style="text-align:center;"><h2>FAQs</h2></div>
 @foreach (var item in Model)
 {
+    ViewBag.QuestionCount += 1;
     <div class="panel panel-default">
         <div class="panel-heading">
             
@@ -76,16 +81,19 @@
         </div>
     </div>*@
 
-
-
-    <div class="container" style="text-align: center;">
-        <div class="bd-example bd-example-padded-bottom">
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#gridSystemModal" style="font-size: x-large;">
-                Answer a Question <i class="glyphicon glyphicon-chevron-right"></i>
-            </button>
-        </div>
-    </div>
-
+@if (ViewBag.QuestionCount == 0)
+    {
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        Sorry...
+                    </h4>
+                </div>
+                    <div class="panel-body">
+                        No questions have been posted to this mission... You can add one below!
+                    </div>
+            </div>
+    }
 
 
 
