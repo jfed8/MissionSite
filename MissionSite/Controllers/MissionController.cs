@@ -110,5 +110,40 @@ namespace MissionSite.Controllers
             }
             return View(missionQuestions);
         }
+
+        // GET: MissionQuestions/AddQuestion/5
+        public ActionResult AddQuestion(int? missionid, int? userid)
+        {
+            ViewBag.Mission = missionid;
+            ViewBag.User = userid;
+            if (missionid == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            MissionQuestions newMissionQuestions = new MissionQuestions();
+            if (newMissionQuestions == null)
+            {
+                return HttpNotFound();
+            }
+            return View(newMissionQuestions);
+        }
+
+        // POST: MissionQuestions/AddQuestion/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddQuestion([Bind(Include = "MissionQuestionID,MissionID,UserID,Question,Answer")] MissionQuestions missionQuestions, int missionid, int userid)
+        {
+            ViewBag.Mission = missionid;
+            ViewBag.User = userid;
+            if (ModelState.IsValid)
+            {
+                db.Entry(missionQuestions).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("FAQ", "Mission", new { missionID = missionQuestions.MissionID });
+            }
+            return View(missionQuestions);
+        }
     }
 }

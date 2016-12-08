@@ -164,20 +164,13 @@
 
     <!--  MARK: New Question Form  -->
 
-    <div class="alert alert-success" id="alert" style="display:none;">
-        <a href="#" class="close" aria-label="close" onclick="$('.alert').hide();">&times;</a>
-        <strong>Sorry!</strong> Your question was not saved, because this is a fake website anyway.
-    </div>
 
     <div class="container" style="text-align: center;">
-   
-        <div class="row">
-            <br />
-            <textarea id="message" class="input" name="message" rows="7" cols="30" placeholder="Type your new question here"></textarea><br />
-        </div>
-        <br />
-        <button id="submit_button" value="Send email" onclick="$('.alert').show(); $('#name').val(''); $('#email').val(''); $('#message').val('');">Add Question</button>
+        @Html.ActionLink("Add Question", "AddQuestion", "Mission", new { missionid = 1, userid = 1 }, null)
     </div>
+
+
+
 
 <script>
     (function () {
