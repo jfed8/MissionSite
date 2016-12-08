@@ -100,6 +100,11 @@ namespace MissionSite.Controllers
             {
                 return HttpNotFound();
             }
+
+            Missions mission = db.Mission.Find(missionQuestions.MissionID);
+                ViewBag.MissionName = mission.MissionName;
+                ViewBag.MissionNumber = mission.MissionID;
+
             return View(missionQuestions);
         }
 
