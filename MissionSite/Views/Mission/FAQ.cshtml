@@ -14,10 +14,15 @@
 
 <br />
 
+@{
+    ViewBag.QuestionCount = 0;
+}
+
 <div class="panel-group" id="accordion">
 <div class="panel-heading" style="text-align:center;"><h2>FAQs</h2></div>
 @foreach (var item in Model)
 {
+    ViewBag.QuestionCount += 1;
     <div class="panel panel-default">
         <div class="panel-heading">
             
@@ -82,16 +87,19 @@
         </div>
     </div>*@
 
-
-
-    <div class="container" style="text-align: center;">
-        <div class="bd-example bd-example-padded-bottom">
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#gridSystemModal" style="font-size: x-large;">
-                Answer a Question <i class="glyphicon glyphicon-chevron-right"></i>
-            </button>
-        </div>
-    </div>
-
+@if (ViewBag.QuestionCount == 0)
+    {
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        Sorry...
+                    </h4>
+                </div>
+                    <div class="panel-body">
+                        No questions have been posted to this mission... You can add one below!
+                    </div>
+            </div>
+    }
 
 
 
@@ -162,20 +170,13 @@
 
     <!--  MARK: New Question Form  -->
 
-    <div class="alert alert-success" id="alert" style="display:none;">
-        <a href="#" class="close" aria-label="close" onclick="$('.alert').hide();">&times;</a>
-        <strong>Sorry!</strong> Your question was not saved, because this is a fake website anyway.
-    </div>
 
     <div class="container" style="text-align: center;">
-   
-        <div class="row">
-            <br />
-            <textarea id="message" class="input" name="message" rows="7" cols="30" placeholder="Type your new question here"></textarea><br />
-        </div>
-        <br />
-        <button id="submit_button" value="Send email" onclick="$('.alert').show(); $('#name').val(''); $('#email').val(''); $('#message').val('');">Add Question</button>
+        @Html.ActionLink("Add Question", "AddQuestion", "Mission", new { missionid = 1, userid = 1 }, null)
     </div>
+
+
+
 
 <script>
     (function () {
