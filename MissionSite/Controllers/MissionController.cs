@@ -66,6 +66,17 @@ namespace MissionSite.Controllers
             // Do something to get the information on the questions.
 
             ViewBag.mission = missionID;
+            ViewBag.user = User.Identity.Name;
+
+            IEnumerable<Users> currentUser =
+                db.Database.SqlQuery<Users>(
+                "Select * " +
+                "FROM Users " +
+                "WHERE UserEmail = '" + User.Identity.Name + "'");
+
+            int temp = Convert.ToInt32(currentUser.FirstOrDefault().UserID);
+
+            ViewBag.userid = (int)temp;
 
             if (missionID != null)
             {
