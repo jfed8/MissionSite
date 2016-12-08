@@ -3,48 +3,58 @@
 @{
     ViewBag.Title = "Edit";
 }
+<nav class="breadcrumb" style="position:fixed; z-index: 10000;">
+    <a class="breadcrumb-item" href="@Url.Action("Index", "Home")">Home</a> /
+    <a class="breadcrumb-item" href="@Url.Action("Missions", "Mission")">Missions</a> /
+    <a class="breadcrumb-item" href="@Url.Action("MissionDetails", "Mission", new { missionID = @ViewBag.MissionNumber })">@ViewBag.MissionName</a> /
+    <a class="breadcrumb-item" href="@Url.Action("FAQ", "Mission", new { missionID = @ViewBag.MissionNumber })">FAQ</a> /
+    <span class="breadcrumb-item active">Answer Question</span>
+</nav>
 
-<h2>Edit</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <h4>MissionQuestions</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.MissionQuestionID)
-        @Html.HiddenFor(model => model.MissionID)
-        @Html.HiddenFor(model => model.UserID)
-        @Html.HiddenFor(model => model.Question)
+<br />
 
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Question, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+    <div class="panel-heading" style="text-align:center;"><h2>Answer A Question</h2></div>
 
-                <h4>@Html.DisplayFor(model => model.Question)</h4>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+           
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.MissionQuestionID)
+            @Html.HiddenFor(model => model.MissionID)
+            @Html.HiddenFor(model => model.UserID)
+            @Html.HiddenFor(model => model.Question)
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Question, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    <h4>@Html.DisplayFor(model => model.Question)</h4>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Answer, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Answer, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
             </div>
         </div>
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Answer, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Answer, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+    <div>
+        @Html.ActionLink("Back to Questions", "FAQ", "Mission", new { missionID = Model.MissionID }, null)
     </div>
-}
-
-
-<div>
-    @Html.ActionLink("Back to Questions", "FAQ", "Mission", new { missionID = Model.MissionID }, null)
-</div>

@@ -66,11 +66,19 @@ namespace MissionSite.Controllers
             // Do something to get the information on the questions.
             if (missionID != null)
             {
+                int id = Convert.ToInt32(missionID);
+                Missions mission = db.Mission.Find(id);
+                ViewBag.MissionName = mission.MissionName;
+                ViewBag.MissionNumber = mission.MissionID;
+
                 IEnumerable<MissionQuestions> Questions =
                 db.Database.SqlQuery<MissionQuestions>(
                 "Select MissionQuestionID, MissionID, UserID, Question, Answer " +
                 "FROM MissionQuestions " +
                 "WHERE MissionID = '" + missionID + "'");
+
+               
+
                 return View(Questions);
             }
             else
@@ -92,6 +100,11 @@ namespace MissionSite.Controllers
             {
                 return HttpNotFound();
             }
+
+            Missions mission = db.Mission.Find(missionQuestions.MissionID);
+                ViewBag.MissionName = mission.MissionName;
+                ViewBag.MissionNumber = mission.MissionID;
+
             return View(missionQuestions);
         }
 

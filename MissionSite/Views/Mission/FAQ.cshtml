@@ -4,6 +4,12 @@
     ViewBag.Title = "FAQ";
 }
 
+<nav class="breadcrumb" style="position:fixed; z-index: 10000;">
+    <a class="breadcrumb-item" href="@Url.Action("Index", "Home")">Home</a> /
+    <a class="breadcrumb-item" href="@Url.Action("Missions", "Mission")">Missions</a> /
+    <a class="breadcrumb-item" href="@Url.Action("MissionDetails", "Mission", new { missionID = @ViewBag.MissionNumber })">@ViewBag.MissionName</a> /
+    <span class="breadcrumb-item active">FAQ</span>
+</nav>
 <!--  MARK: FAQ Section  -->
 
 <br />
