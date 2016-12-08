@@ -19,11 +19,12 @@
 
 <div class="container-fluid" >
     <div class="row">
-        <div class="col-md-12" id="flag" style="text-align: center;">
-            <img src="@Html.DisplayFor(model => item.MissionFlag)" style=" height: auto; width: 50vw; padding-right: 20px;" />
-            
+        <div class="col-md-6" id="map"></div>
+        <br /><br />
+        <div class="col-md-6" id="flag">
+            <img src="@Html.DisplayFor(model => item.MissionFlag)" style=" height: auto; width: 100%; margin-top: -7.75%;" />
+
         </div>
-        
     </div>
 
     <br />
@@ -61,7 +62,23 @@
 </div>
 }
 
-
+<!--MAP-->
+<script>
+      function initMap() {
+          var uluru = { lat: @ViewBag.Latitude, lng: @ViewBag.Longitude };
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 3,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9E7fEKL8npAi2e-0ikFcl4kyVtQuIdsc&callback=initMap">
+</script>
 
 
 

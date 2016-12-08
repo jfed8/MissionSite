@@ -18,6 +18,26 @@ namespace MissionSite.Controllers
         // GET: Mission
         public ActionResult MissionDetails(string missionID)
         {
+            if(missionID == "1")
+            {
+                ViewBag.Latitude = -17.413977;
+                ViewBag.Longitude = -66.165321;
+            }
+            else if(missionID == "2")
+            {
+                ViewBag.Latitude = 30.451089;
+                ViewBag.Longitude = -91.126355;
+            }
+            else if(missionID == "3")
+            {
+                ViewBag.Latitude = 11.2543;
+                ViewBag.Longitude = 124.9617;
+            }
+            else
+            {
+                ViewBag.Latitude = 40.585258;
+                ViewBag.Longitude = -105.084419;
+            }
             if (missionID != null)
             {
                 IEnumerable<Missions> SelectedMission =
