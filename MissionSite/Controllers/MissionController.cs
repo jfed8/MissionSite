@@ -80,12 +80,14 @@ namespace MissionSite.Controllers
 
             if (missionID != null)
             {
+                //Find mission name to display in breadcrumbe
                 int id = Convert.ToInt32(missionID);
                 ViewBag.mission = missionID;
                 Missions mission = db.Mission.Find(id);
                 ViewBag.MissionName = mission.MissionName;
                 ViewBag.MissionNumber = mission.MissionID;
 
+                //Queries the database for the list of questions for specified mission
                 IEnumerable<MissionQuestions> Questions =
                 db.Database.SqlQuery<MissionQuestions>(
                 "Select MissionQuestionID, MissionID, UserID, Question, Answer " +
@@ -158,6 +160,11 @@ namespace MissionSite.Controllers
             else
             {
                 MissionQuestions newMissionQuestions = new MissionQuestions() { MissionID = id};
+
+                //Query Mission name for breadcrumb
+                Missions mission = db.Mission.Find(id);
+                ViewBag.MissionName = mission.MissionName;
+                ViewBag.MissionNumber = mission.MissionID;
 
                 return View(newMissionQuestions);
             }
