@@ -3,7 +3,13 @@
 @{
     ViewBag.Title = "AddQuestion";
 }
-
+<nav class="breadcrumb" style="position:fixed; z-index: 10000;">
+    <a class="breadcrumb-item" href="@Url.Action("Index", "Home")">Home</a> /
+    <a class="breadcrumb-item" href="@Url.Action("Missions", "Mission")">Missions</a> /
+    <a class="breadcrumb-item" href="@Url.Action("MissionDetails", "Mission", new { missionID = @ViewBag.MissionNumber })">@ViewBag.MissionName</a> /
+    <span class="breadcrumb-item active">Add a Question</span>
+</nav>
+<br />
 <h2>Add Question:</h2>
 
 @using (Html.BeginForm())

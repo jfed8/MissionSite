@@ -66,11 +66,13 @@ namespace MissionSite.Controllers
             // Do something to get the information on the questions.
             if (missionID != null)
             {
+                //Find mission name to display in breadcrumbe
                 int id = Convert.ToInt32(missionID);
                 Missions mission = db.Mission.Find(id);
                 ViewBag.MissionName = mission.MissionName;
                 ViewBag.MissionNumber = mission.MissionID;
 
+                //Queries the database for the list of questions for specified mission
                 IEnumerable<MissionQuestions> Questions =
                 db.Database.SqlQuery<MissionQuestions>(
                 "Select MissionQuestionID, MissionID, UserID, Question, Answer " +
@@ -127,6 +129,8 @@ namespace MissionSite.Controllers
         // GET: MissionQuestions/AddQuestion/5
         public ActionResult AddQuestion(int? missionid, int? userid)
         {
+            
+
             ViewBag.Mission = missionid;
             ViewBag.User = userid;
             if (missionid == null)
@@ -138,6 +142,11 @@ namespace MissionSite.Controllers
             {
                 return HttpNotFound();
             }
+            //Find Mission name and id for breadcrumb navigation
+            Missions mission = db.Mission.Find(missionid);
+            ViewBag.MissionName = mission.MissionName;
+            ViewBag.MissionNumber = mission.MissionID;
+
             return View(newMissionQuestions);
         }
 
