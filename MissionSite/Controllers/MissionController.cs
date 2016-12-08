@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using MissionSite.Models;
 using MissionSite.DAL;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace MissionSite.Controllers
 {
@@ -59,13 +60,24 @@ namespace MissionSite.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Edit(int id)
+        public ActionResult Edit(int? questionid)
         {
-            return View();
+            if (questionid == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            MissionQuestions question = db.MissionQuestion.Find(questionid);
+            
+            if(question ==null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(question);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit(MissionQuestions model)
+        public ActionResult Edit(MissionQuestions model)
         {
             return RedirectToAction("FAQ", "Mission", new { missionID = @model.MissionID });
         }

@@ -20,7 +20,7 @@
             <button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#gridSystemModal" style="font-size: large;">
                 Edit/Add Answer
             </button>
-            @Html.ActionLink("Add/Edit Answer", "Edit", "Mission", new { id = item.MissionQuestionID}, null)
+            @Html.ActionLink("Add/Edit Answer", "Edit", "Mission", new { questionid = item.MissionQuestionID}, null)
             <div class="clearfix"></div>
         </div>
         <div id="collapse-@item.MissionQuestionID" class="panel-collapse collapse in">

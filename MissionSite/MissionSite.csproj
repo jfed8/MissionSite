@@ -240,6 +240,7 @@
     <Content Include="Views\Mission\Missions.cshtml" />
     <Content Include="Views\Mission\MissionDetails.cshtml" />
     <Content Include="Views\Mission\FAQ.cshtml" />
+    <Content Include="Views\Mission\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
