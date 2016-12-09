@@ -16,9 +16,11 @@ namespace MissionSite.Controllers
 
         private MissionaryContext db = new MissionaryContext();
 
+
         public ActionResult Index()
         {
-            return View(db.Mission.ToList());
+           
+            return View(db.Mission.ToList()); //List to be used in dropdown list
         }
 
         public ActionResult About()
@@ -30,6 +32,7 @@ namespace MissionSite.Controllers
 
         public ActionResult Contact()
         {
+            //Returns contact page to ask questions that are not related to a specific mission
             List<SelectListItem> subjects = new List<SelectListItem>();
             subjects.Add(new SelectListItem { Text = "Missionary Life", Value = "0" });
             subjects.Add(new SelectListItem { Text = "Teaching", Value = "1" });

@@ -18,6 +18,7 @@ namespace MissionSite.Controllers
         // GET: Mission
         public ActionResult MissionDetails(string missionID)
         {
+            //If Statements to set the Latitude/Longitude for the google map
             if(missionID == "1")
             {
                 ViewBag.Latitude = -17.413977;
@@ -38,8 +39,11 @@ namespace MissionSite.Controllers
                 ViewBag.Latitude = 40.585258;
                 ViewBag.Longitude = -105.084419;
             }
+
+
             if (missionID != null)
             {
+                // Queries database for information of the specified mission
                 IEnumerable<Missions> SelectedMission =
                 db.Database.SqlQuery<Missions>(
                 "Select MissionID, MissionName, MissionPresident, MissionStreet1, " +
@@ -63,11 +67,12 @@ namespace MissionSite.Controllers
         [Authorize]
         public ActionResult FAQ(string missionID)
         {
-            // Do something to get the information on the questions.
-
+            
+            //ViewBags to pass missionID and User.Identity to the view
             ViewBag.mission = missionID;
             ViewBag.user = User.Identity.Name;
 
+            //Queries database for current user's information
             IEnumerable<Users> currentUser =
                 db.Database.SqlQuery<Users>(
                 "Select * " +
@@ -80,7 +85,7 @@ namespace MissionSite.Controllers
 
             if (missionID != null)
             {
-                //Find mission name to display in breadcrumbe
+                //Find mission name to display in breadcrumb
                 int id = Convert.ToInt32(missionID);
                 ViewBag.mission = missionID;
                 Missions mission = db.Mission.Find(id);
@@ -118,6 +123,7 @@ namespace MissionSite.Controllers
                 return HttpNotFound();
             }
 
+            //Finds mission information to use for BreadCrumb navigation.
             Missions mission = db.Mission.Find(missionQuestions.MissionID);
                 ViewBag.MissionName = mission.MissionName;
                 ViewBag.MissionNumber = mission.MissionID;
@@ -150,7 +156,7 @@ namespace MissionSite.Controllers
             {
                 id = Convert.ToInt32(missionid);
             }
-
+            //ViewBags to send MissionID and userid to view
             ViewBag.Mission = id;
             ViewBag.User = userid;
             if (missionid == null)
@@ -178,10 +184,13 @@ namespace MissionSite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddQuestion(MissionQuestions missionQuestions, int missionid, int userid)
         {
+            //Verifies that the missionQuestion object has the correct missionid and userid before saving to the database.
             missionQuestions.MissionID = missionid;
             missionQuestions.UserID = userid;
+
             if (ModelState.IsValid)
             {
+                //Saves missionQuestions to the database and redirects to FAQ pag
                 db.MissionQuestion.Add(missionQuestions);
                 db.SaveChanges();
                 return RedirectToAction("FAQ", "Mission", new { missionID = missionQuestions.MissionID });
