@@ -9,6 +9,16 @@ using System.Web.Mvc;
 using MissionSite.DAL;
 using MissionSite.Models;
 
+
+/*
+ * Project 2 Mission Site
+ * Date: 12/08/16
+ * Authors: Klynt Yardley, Jess Clapier, Jaden Feddock, Matthew Christensen
+ * Description:  A mission website for users to ask question for specific question for a mission.  
+ * The user must be authenticated before seeing the FAQ page. These users, missions, and questions are saved to the local Missionary Database
+ * 
+ */
+
 namespace MissionSite.Controllers
 {
     public class HomeController : Controller
